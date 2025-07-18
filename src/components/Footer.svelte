@@ -1,65 +1,80 @@
 <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-section about">
-        <h2>Designed & coded</h2>
-        <p>by Manasa Kudumu</p>
-      </div>
-      <div class="footer-section links">
-        <a href="https://github.com/manasakudumu" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/manasa-kudumu-098670215/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://drive.google.com/file/d/1JeZme-7OwdNuhh46X-rcCj5cE-dXBiIx/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
-      </div>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="mailto:mk122@wellesley.edu">→Email</a>
+      <a href="https://www.linkedin.com/in/manasa-kudumu-098670215/" target="_blank" rel="noopener">→LinkedIn</a>
+      <a href="https://your.resume.link" target="_blank" rel="noopener">→Resume</a>
     </div>
-  </footer>
+    <div class="footer-meta">
+      <div>Updated 7/24</div>
+      <div>©Manasa Kudumu_2025</div>
+    </div>
+  </div>
+</footer>
 
 <style>
-
-.footer {
-  width: 100vw;
-  background: #6b7742;
-  color: #fff;
-  padding: 2rem 0 1rem 0;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  margin-bottom: -50vw;
-  box-sizing: border-box;
+  .footer {
+  width: 100%;
+  background: #eaeae3 url('/bg.png') center 70% / 100% 200% no-repeat;
+  border-top: 2px solid #232323;
+  font-family: 'Inter', Arial, sans-serif;
+  padding: 1.2rem 0;
 }
 
-.footer-content {
-  max-width: 900px;
+.footer-inner {
+  max-width: 1000px;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
+  align-items: flex-end;
   justify-content: space-between;
-  align-items: center;
+  width: 100%;
   padding: 0 2rem;
 }
 
-.footer-section {
-  margin-bottom: 1rem;
+.footer-links {
+  display: flex;
+  gap: 2rem;
 }
 
-.footer-section.about h2 {
-  font-size: 1.2rem;
-  color: #e7cfcf;
-  margin-bottom: 0.5rem;
-}
-
-.footer-section.links a {
-  color: black;
-  margin-right: 1.5rem;
+.footer-links a {
+  color: #232323;
   text-decoration: none;
-  font-weight: 600;
+  font-size: 1.18rem;
   transition: color 0.2s;
 }
 
-.footer-section.links a:hover {
-  color: #fff;
+.footer-links a:hover {
+  color: #6C7B3E;
+  text-decoration: underline;
 }
 
+.footer-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: #232323;
+  font-size: 1rem;
+  opacity: 0.93;
+  gap: 0.5rem;
+}
 
-
+@media (max-width: 700px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 1rem;
+  }
+  .footer-links {
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+  }
+  .footer-meta {
+    align-items: center;
+    text-align: center;
+    font-size: 0.98rem;
+    margin-top: 0.4rem;
+  }
+}
 </style>

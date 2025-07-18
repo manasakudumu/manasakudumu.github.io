@@ -1,168 +1,159 @@
 <script>
+    import { fly } from 'svelte/transition';
+
     let experiences = [
-        {
-            title: "Intern",
-            organization: "Mantis AI",
-            date: "June 2025",
-            description: "Worked on AI product research.",
-            logo: "/project1.png"
+        { 
+            title: "Intern", 
+            organization: "Mantis AI", 
+            date: "June 2025", 
+            description: "Worked on AI product research.", 
+            logo: "/project1.png" 
         },
-        {
-            title: "Research Assistant",
-            organization: "Wellesley College",
-            date: "May 2024 - Present",
-            description: "Research on LLMs and accessibility.",
-            logo: "/project1.png"
-        },
-        {
-            title: "Treasury Lead",
-            organization: "WHACK",
-            date: "April 2025 - Present",
-            description: "Hackathon financial management.",
-            logo: "/project1.png"
-        },
-        {
-            title: "Software Engineer Intern",
-            organization: "Technovation",
-            date: "Dec 2021 - Jun 2023",
-            description: "Built inclusive learning tools.",
-            logo: "/project1.png"
-        }
+        { 
+            title: "Research Assistant", 
+            organization: "Wellesley College", 
+            date: "May 2024 - Present", 
+            description: "- Assisted Professor Gadiraju in Google-funded research on how users with disabilities use LLMs. Interviewed people with disabilities and maintained a comprehensive database of interactions and conducted diary studies to understand how they use generative AI chatbots, particularly Gemini. Used qualitative coding to categorize these use cases. Presented our paper at the ACM SIGACCESS Conference on Computers and Accessibility in St.Johns, Canada and won second place in the undergraduate category as part of their Student Research Competition.- Assisted Professor Gadiraju in Google-funded research on how users with disabilities use LLMs - Interviewed people with disabilities and maintained a comprehensive database of interactions and conducted diary studies to understand how they use generative AI chatbots, particularly Gemini - Used qualitative coding to categorize these use cases. - Presented our paper at the ACM SIGACCESS Conference on Computers and Accessibility in St.Johns, Canada and won second place in the undergraduate category as part of their Student Research Competition.", 
+            logo: "/project1.png" },
+        { 
+            title: "Treasury Lead", 
+            organization: "WHACK", 
+            date: "April 2025 - Present", 
+            description: "Hackathon financial management.", 
+            logo: "/project1.png" },
+        { 
+            title: "Software Engineer Intern", 
+            organization: "Technovation", 
+            date: "Dec 2021 - Jun 2023", 
+            description: "Built inclusive learning tools.", 
+            logo: "/project1.png" }
     ];
+
+    let visible = Array(experiences.length).fill(false);
+
+    function onEnter(index) {
+        visible = visible.slice();
+        visible[index] = true;
+    }
+
+    function observe(node, index) {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    onEnter(index);
+                    observer.unobserve(node);
+                }
+            },
+            { threshold: 0.12 }
+        );
+        observer.observe(node);
+        return {
+            destroy() {
+                observer.disconnect();
+            }
+        };
+    }
 </script>
 
-<div class="timeline">
+<div class="experience-section">
     {#each experiences as exp, i}
-    <div class="timeline-row">
-        <!-- Logo & vertical line -->
-        <div class="timeline-center">
-            {#if i !== 0}
-              <span class="line top"></span>
-            {/if}
-            <div class="timeline-logo">
-                <img src={exp.logo} alt={exp.organization} />
+        <div class="experience-trigger" use:observe={i}></div>
+        {#if visible[i]}
+            <div
+                class="exp-row"
+                in:fly={{ y: 60, duration: 550, delay: 0, opacity: 0 }}
+            >
+                <div class="exp-left">
+                    <h3>{exp.title}</h3>
+                    <span class="org">{exp.organization}</span>
+                    <span class="date">{exp.date}</span>
+                </div>
+                <div class="exp-right">
+                    <p>{exp.description}</p>
+                </div>
             </div>
-            {#if i !== experiences.length - 1}
-              <span class="line bottom"></span>
-            {/if}
-        </div>
-        <!-- Experience Card -->
-        <div class="timeline-card">
-            <h3>{exp.title}</h3>
-            <div class="org-date">
-                <span class="org">{exp.organization}</span>
-                <span class="date">{exp.date}</span>
-            </div>
-            <p>{exp.description}</p>
-        </div>
-    </div>
+        {/if}
     {/each}
 </div>
 
+
 <style>
-.timeline {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.experience-section {
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
+    padding: 2em 0;
 }
 
-.timeline-row {
+.exp-row {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    min-height: 120px;
-    width: 100%;
-    margin-bottom: 1.5em;
+    align-items: flex-start;
+    justify-content: space-between;
+    background: #f8faef; /* pale green background, adjust as needed */
+    margin-bottom: 2em;
+    border-radius: 1.5em;
+    padding: 2em;
+    transition: box-shadow 0.2s;
 }
 
-.timeline-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 60px;
-    position: relative;
-    min-height: 100px;
+
+.exp-left {
+    min-width: 230px;
+    max-width: 290px;
+    flex: 1 0 230px;
+    padding-right: 2.5em;
 }
 
-.line {
-    width: 4px;
-    background: hsl(120, 19%, 44%);
-    display: block;
-}
-
-.line.top {
-    height: 50%;
-}
-
-.line.bottom {
-    height: 50%;
-}
-
-.timeline-logo {
-    z-index: 1;
-    background: #edf0e4;
-    padding: 4px;
-    border-radius: 50%;
-    margin: -2px 0;
-}
-
-.timeline-logo img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    border-radius: 50%;
-    display: block;
-    border: 2px solid #b9c89c;
-}
-
-.timeline-card {
-    text-align: left;
-    margin-left: 2em;
-    padding: 1em 2em;
-    background: none;
-}
-
-.timeline-card h3 {
-    margin: 0 0 0.2em 0;
-    color: #84953d;
+.exp-left h3 {
+    margin: 0 0 0.3em 0;
+    color: #7e9331;
+    font-size: 1.4em;
     font-family: 'Satoshi', Arial, sans-serif;
     font-weight: 700;
 }
 
-.org-date {
-    font-size: 1.06em;
-    color: #292929;
-    margin-bottom: 0.3em;
-}
-.org {
+.exp-left .org {
+    display: block;
     font-weight: 600;
-    margin-right: 0.6em;
-}
-.date {
-    color: #878787;
-    font-size: 0.99em;
-}
-.timeline-card p {
-    margin: 0.3em 0 0 0;
-    color: #252525;
-    font-size: 1em;
+    color: #56701d;
+    margin-bottom: 0.2em;
+    font-size: 1.09em;
 }
 
-@media (max-width: 650px) {
-    .timeline-row {
+.exp-left .date {
+    display: block;
+    color: #97a262;
+    font-size: 1em;
+    margin-top: 0.2em;
+}
+
+.exp-right {
+    flex: 2 1 400px;
+    color: #222;
+    font-size: 1.08em;
+    line-height: 1.6;
+    padding-left: 0.5em;
+}
+
+.experience-trigger {
+  width: 100%;
+  height: 80px;  
+}
+
+@media (max-width: 700px) {
+    .exp-row {
         flex-direction: column;
-        align-items: flex-start;
+        padding: 1.2em;
     }
-    .timeline-card {
-        margin-left: 0;
-        margin-top: 0.8em;
-        padding: 1em;
+    .exp-left {
+        padding-right: 0;
+        margin-bottom: 0.7em;
+        max-width: 100%;
     }
-    .timeline-center {
-        width: 40px;
+    .exp-right {
+        padding-left: 0;
     }
 }
+
 </style>
