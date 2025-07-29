@@ -46,8 +46,8 @@
   <br>
   <br>
 
-  <br id="connect">
-  <Connect />
+  <!-- <br id="connect">
+  <Connect /> -->
 </div>
 <br>
 <Footer />

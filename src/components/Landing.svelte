@@ -75,7 +75,8 @@
       <span class="boston-time">{bostonTime}</span>
     </div>
     <h1 class="typing">{typedName}</h1>
-    
+    <p>a multidisciplinary developer studying Computer Science + Economics @ Wellesley College and MIT</p>
+    <h5>(my portfolio is currently a work in progress!) </h5>
   </div>
 </div>
 
