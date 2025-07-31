@@ -43,6 +43,15 @@ body {
     color: #83943d;
     margin-bottom: 0.3rem;
   }
+
+  p {
+    font-family: 'Satoshi', Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-top: 0.3rem;
+  }
+  
   
   .caption, .navbar a, .small-text {
     font-family: 'Inter', Arial, sans-serif;

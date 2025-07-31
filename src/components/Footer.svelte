@@ -2,8 +2,9 @@
   <div class="footer-inner">
     <div class="footer-links">
       <a href="mailto:mk122@wellesley.edu">→Email</a>
+      <a href="https://github.com/manasakudumu" target="_blank" rel="noopener">→GitHub</a>
       <a href="https://www.linkedin.com/in/manasa-kudumu-098670215/" target="_blank" rel="noopener">→LinkedIn</a>
-      <a href="https://your.resume.link" target="_blank" rel="noopener">→Resume</a>
+      <a href="https://drive.google.com/file/d/1OcfVoHQUOa92jSDu0GewNy3o-p7VtDSA/view?usp=sharing" target="_blank" rel="noopener">→Resume</a>
     </div>
     <div class="footer-meta">
       <div>Updated 7/24</div>

@@ -76,17 +76,17 @@
     </div>
     <h1 class="typing">{typedName}</h1>
     <p>a multidisciplinary developer studying Computer Science + Economics @ Wellesley College and MIT</p>
-    <h5>(my portfolio is currently a work in progress!) </h5>
+    <h5>(my portfolio is currently a work in progress!)</h5>
   </div>
+    <button class="typewriter-toggle" on:click={handlePlayPause} aria-label={isPlaying ? 'Pause typewriter' : 'Play typewriter'}>
+      {#if isPlaying}
+        ⏸️
+      {:else}
+        ▶️
+      {/if}
+    </button>  
 </div>
 
-<button class="typewriter-toggle" on:click={handlePlayPause} aria-label={isPlaying ? 'Pause typewriter' : 'Play typewriter'}>
-  {#if isPlaying}
-    ⏸️
-  {:else}
-    ▶️
-  {/if}
-</button>
 
 <style>
 .landing {

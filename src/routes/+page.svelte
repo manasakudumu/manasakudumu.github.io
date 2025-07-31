@@ -32,14 +32,14 @@
 <Landing />
 
 <div class="sections">
-  <h2 id="experience">Experience</h2>
+  <h2 id="experience"> Experience </h2>
   <Experience />
 
-  <h2 id="projects">Projects</h2>
+  <h2 id="projects"> Projects </h2>
   <Projects />
 
   <div class=about-part>
-    <br id="about">
+    <h2 id="about">It's nice to meet you!</h2>
     <About />
   </div>
 
@@ -60,13 +60,16 @@
   font-family: 'Inter', Arial, sans-serif;
 }
 
-/* 6. Hide rest of content below fold until user scrolls */
+h2{
+  text-align: center;
+}
+
 .sections {
   margin-top: 6rem;
-  max-width: 900px;
+  max-width: 2000px;
+  padding: 2rem 2.5rem;
   margin-left: auto;
   margin-right: auto;
-  padding: 2rem 1.5rem 0 1.5rem;
   background: transparent;
 }
 

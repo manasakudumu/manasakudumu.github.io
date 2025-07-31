@@ -3,22 +3,22 @@
     {
       title: "dancing",
       description: "the best stress buster",
-      icon: "/dance.png",
+      icon: "dance.png",
     },
     {
       title: "rock climbing",
       description: "new heights and tiny holds",
-      icon: "/climb.png",
+      icon: "climb.png",
     },
     {
       title: "cafe hopping",
       description: "love my daily matcha :)",
-      icon: "/whisk.png",
+      icon: "whisk.png",
     },
     {
       title: "reading",
-      description: "with a warm cup of tea!",
-      icon: "/book.png",
+      description: "i would love some recs!",
+      icon: "book.png",
     }
   ];
 </script>
@@ -26,18 +26,16 @@
 <section class="about">
 <div class="about-section">
   <div class="about-card">
-    <img class="about-img" src="/6C35.jpg" alt="Manasa by Waban Lake" />
+    <img class="about-img" src="6C35.jpg" alt="Manasa by Waban Lake" />
     <div class="about-bio">
-      <h2>About Manasa</h2>
-      <h4>It's nice to meet you!</h4>
-      <p>
-        I am a rising junior at Wellesley College, double majoring in Computer Science and Economics. My work explores how technology, AI, and inclusive design can empower people and communities. My goal is to build accessible tech solutions that bridge gaps and create real impact.
-      </p>
+      <p>I'm a junior at Wellesley College majoring in Computer Science and Economics. My work focuses on the intersection of accessibility, AI, and inclusive design. I build research-informed tools and design experiences that empower underserved communities. </p>
+      <p>Through research at Wellesley, I've explored how disabled users interact with large language models and contributed to work on equitable AI design. My academic background gives me a strong foundation, but much of my learning comes from real-world projects and self-driven exploration.</p>
+      <p>I'm passionate about applying machine learning, computer vision, and human-centered design to solve societal challenges, one commit at a time.</p>
     </div>
   </div>
 
   <div class="hobbies">
-    <h3>In my free time, you can find me...</h3>
+    <h3>I'm also into...</h3>
     <div class="hobby-list">
       {#each hobbies as hobby}
         <div class="hobby-card">
@@ -52,15 +50,11 @@
 </section>
 
 <style>
-.about{
-  background: #4b5436;
 
-}
 .about-section {
-  max-width: 1100px;
   margin: 0 auto;
-  background: #f5fbe7;
   padding: 2rem 1rem 0 1rem;
+  max-width: 900px;
 }
 
 .about-card {
@@ -81,6 +75,7 @@
   display: block;
   max-width: 100%;
 }
+
 
 .about-bio {
   flex: 1;
@@ -110,7 +105,7 @@
   font-size: 1.08rem;
   margin-bottom: 0.65em;
   line-height: 1.7;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Satoshi', Arial, sans-serif;
 }
 
 .hobbies {
@@ -138,7 +133,7 @@
   background: #d6e0ba;
   border-radius: 18px;
   padding: 1.2rem 1.2rem 1.8rem 1.2rem;
-  width: 165.4px;
+  width: 173.4px;
   min-height: 120px;
   display: flex;
   flex-direction: column;
@@ -168,7 +163,7 @@
 }
 
 .hobby-desc {
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Satoshi', Arial, sans-serif;
   font-size: 0.97rem;
   color: #757a6b;
   margin-bottom: 0.4rem;

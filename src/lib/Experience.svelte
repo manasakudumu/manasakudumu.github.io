@@ -1,159 +1,116 @@
 <script>
-    import { fly } from 'svelte/transition';
-
-    let experiences = [
-        { 
-            title: "Intern", 
-            organization: "Mantis AI", 
-            date: "June 2025", 
-            description: "Worked on AI product research.", 
-            logo: "/project1.png" 
-        },
-        { 
-            title: "Research Assistant", 
-            organization: "Wellesley College", 
-            date: "May 2024 - Present", 
-            description: "- Assisted Professor Gadiraju in Google-funded research on how users with disabilities use LLMs. Interviewed people with disabilities and maintained a comprehensive database of interactions and conducted diary studies to understand how they use generative AI chatbots, particularly Gemini. Used qualitative coding to categorize these use cases. Presented our paper at the ACM SIGACCESS Conference on Computers and Accessibility in St.Johns, Canada and won second place in the undergraduate category as part of their Student Research Competition.- Assisted Professor Gadiraju in Google-funded research on how users with disabilities use LLMs - Interviewed people with disabilities and maintained a comprehensive database of interactions and conducted diary studies to understand how they use generative AI chatbots, particularly Gemini - Used qualitative coding to categorize these use cases. - Presented our paper at the ACM SIGACCESS Conference on Computers and Accessibility in St.Johns, Canada and won second place in the undergraduate category as part of their Student Research Competition.", 
-            logo: "/project1.png" },
-        { 
-            title: "Treasury Lead", 
-            organization: "WHACK", 
-            date: "April 2025 - Present", 
-            description: "Hackathon financial management.", 
-            logo: "/project1.png" },
-        { 
-            title: "Software Engineer Intern", 
-            organization: "Technovation", 
-            date: "Dec 2021 - Jun 2023", 
-            description: "Built inclusive learning tools.", 
-            logo: "/project1.png" }
+    const experiences = [
+      {
+        date: "May 2025 – Present",
+        org: "MIT CSAIL – Mantis AI",
+        role: "Software Engineer Intern",
+        desc: "Developing an interactive AI-powered platform for large-scale geospatial and financial analysis. Leveraged OpenAI for semantic product-to-industry mapping and dynamic cluster-based visualization."
+      },
+      {
+        date: "May 2024 – Present",
+        org: "Wellesley College – Accessibility Lab",
+        role: "Undergraduate Research Assistant",
+        desc: "Interviewed 30+ disabled users and conducted qualitative coding to study how people use LLMs like Gemini. Co-authored an award-winning paper at ACM SIGACCESS 2024 on inclusive chatbot interactions."
+      },
+      {
+        date: "Jul 2024 – Sep 2024",
+        org: "MIT Teaching Systems Lab",
+        role: "Undergraduate Summer Researcher",
+        desc: "Analyzed interview data from K–12 educators using GenAI in classrooms. Conducted thematic coding in Atlas.ti, and contributed to the TeachLab podcast on AI in education led by Prof. Justin Reich."
+      },
+      {
+        date: "Apr 2025 – Present",
+        org: "Hack @ Wellesley",
+        role: "Treasury Lead",
+        desc: "Led budgeting, fund allocation, and sponsorship outreach for Wellesley’s annual hackathon, managing finances and securing industry partners for 200+ attendees."
+      },
+      {
+        date: "Dec 2021 – Jun 2023",
+        org: "Technovation – Team Noor",
+        role: "Founder & CEO",
+        desc: "Built Noor, an app for blind students with audiobooks and job boards. Led product, design, and fundraising. 1st place winner at Smart India Hackathon and Technovation Girls semifinalist."
+      }
     ];
-
-    let visible = Array(experiences.length).fill(false);
-
-    function onEnter(index) {
-        visible = visible.slice();
-        visible[index] = true;
-    }
-
-    function observe(node, index) {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    onEnter(index);
-                    observer.unobserve(node);
-                }
-            },
-            { threshold: 0.12 }
-        );
-        observer.observe(node);
-        return {
-            destroy() {
-                observer.disconnect();
-            }
-        };
-    }
-</script>
-
-<div class="experience-section">
-    {#each experiences as exp, i}
-        <div class="experience-trigger" use:observe={i}></div>
-        {#if visible[i]}
-            <div
-                class="exp-row"
-                in:fly={{ y: 60, duration: 550, delay: 0, opacity: 0 }}
-            >
-                <div class="exp-left">
-                    <h3>{exp.title}</h3>
-                    <span class="org">{exp.organization}</span>
-                    <span class="date">{exp.date}</span>
-                </div>
-                <div class="exp-right">
-                    <p>{exp.description}</p>
-                </div>
-            </div>
-        {/if}
-    {/each}
-</div>
-
+  </script>
+  
+  
+  <section id="experience">
+    <div class="timeline">
+      {#each experiences as exp}
+        <div class="experience-item">
+          <div class="date">{exp.date}</div>
+          <div class="details">
+            <p class="title">
+              <span class="org">{exp.org}</span>
+              <span class="dot"> • </span>
+              <span class="role">{exp.role}</span>
+            </p>
+            <p class="desc">{exp.desc}</p>
+          </div>
+        </div>
+      {/each}
+    </div>
+  </section>
+  
+  
 
 <style>
-.experience-section {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2em 0;
+#experience {
+  padding: 4rem 2rem;
+  font-family: 'Satoshi', Arial, sans-serif;
 }
 
-.exp-row {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    background: #f8faef; /* pale green background, adjust as needed */
-    margin-bottom: 2em;
-    border-radius: 1.5em;
-    padding: 2em;
-    transition: box-shadow 0.2s;
+.timeline {
+  display: grid;
+  grid-template-columns: 180px 1fr; /* Left: date, Right: details */
+  row-gap: 3rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-
-.exp-left {
-    min-width: 230px;
-    max-width: 290px;
-    flex: 1 0 230px;
-    padding-right: 2.5em;
+.experience-item {
+  display: contents; /* Allows grid children to align */
 }
 
-.exp-left h3 {
-    margin: 0 0 0.3em 0;
-    color: #7e9331;
-    font-size: 1.4em;
-    font-family: 'Satoshi', Arial, sans-serif;
-    font-weight: 700;
+.date {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #3e3e3e;
+  padding-top: 0.25rem;
+  margin-top: 0.9rem;
 }
 
-.exp-left .org {
-    display: block;
-    font-weight: 600;
-    color: #56701d;
-    margin-bottom: 0.2em;
-    font-size: 1.09em;
+.details {
+  display: flex;
+  flex-direction: column;
 }
 
-.exp-left .date {
-    display: block;
-    color: #97a262;
-    font-size: 1em;
-    margin-top: 0.2em;
+.title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #29472a;
 }
 
-.exp-right {
-    flex: 2 1 400px;
-    color: #222;
-    font-size: 1.08em;
-    line-height: 1.6;
-    padding-left: 0.5em;
+.org {
+  font-weight: 700;
 }
 
-.experience-trigger {
-  width: 100%;
-  height: 80px;  
+.role {
+  font-weight: normal;
+  color: #555;
 }
 
-@media (max-width: 700px) {
-    .exp-row {
-        flex-direction: column;
-        padding: 1.2em;
-    }
-    .exp-left {
-        padding-right: 0;
-        margin-bottom: 0.7em;
-        max-width: 100%;
-    }
-    .exp-right {
-        padding-left: 0;
-    }
+.dot {
+  margin: 0 0.3rem;
+  color: #999;
 }
 
+.desc {
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+  
 </style>

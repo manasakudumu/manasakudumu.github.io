@@ -2,70 +2,123 @@
 	let projects = [
 		{
 			title: 'Interactive Foreclosure Visualizer',
-			image: '/foreclosure.png',
+			image: 'foreclosure.png',
 			description: 'Story-driven Svelte + D3.js + Mapbox app visualizing foreclosure trends in Boston across time and neighborhoods.',
-			link: 'https://manasakudumu.github.io/cs-portfolio/' 
+            technologies: ["Svelte", "D3.js", "Mapbox"],
+			link: 'https://hannahchiou.github.io/hjc-project/' 
 		},
 		{
 			title: 'Accessible Education Platform – Noor',
-			image: '/noor.png',
+			image: 'noor.png',
 			description: 'Mobile app for visually impaired students with audiobooks, talent showcases, and job listings. 1st place at Smart India Hackathon.',
-			link: 'https://manasakudumu.github.io/cs-portfolio/' 
+            technologies: ["MIT App Inventor"],
+			link: 'https://www.youtube.com/watch?v=mkOmThaUvvg' 
 		},
 		{
 			title: 'Bike Watching',
-			image: '/bikewatching.png',
+			image: 'bikewatching.png',
 			description: 'Interactive map of Boston bike traffic with dynamic filters and animated flows using Svelte, D3.js, and Mapbox.',
-			link: 'https://manasakudumu.github.io/cs-portfolio/'
+            technologies: ["Svelte", "D3.js", "Mapbox"],
+			link: 'https://manasakudumu.github.io/bikingviz1/'
 		}
 	];
 </script>
 
-
-<div class="gallery">
-    {#each projects as project}
-    <div class="proj">
-        <a  href="{project.link}" target="_blank" rel="noopener"><img src="{project.image}" alt="{project.title}"></a>
-        <h3>{project.title}</h3>
-        <p>{project.description}</p>
-    </div>
-    {/each}
-</div>
+<section id="projects" class="projects-section">
+	<div class="projects-grid">
+		{#each projects as project}
+			<div class="project-card">
+				<a href={project.link} target="_blank" rel="noopener noreferrer">
+					<img src={project.image} alt={project.title} />
+				</a>
+				<h3>{project.title}</h3>
+				<p>{project.description}</p>
+                <div class="tech-tags">
+                    {#each project.technologies as tech}
+                      <span class="tech-box">{tech}</span>
+                    {/each}
+                  </div>                  
+			</div>
+		{/each}
+	</div>
+</section>
 
 <style>
-    .gallery{
-        display:grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap:2em;
-        margin-top:4em;
-    }
+.projects-section {
+	background-color: #f6f9ed;
+	padding: 5rem 2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    
+}
 
-    @media (max-width: 900px) {
-        .gallery {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-    @media (max-width: 600px) {
-        .gallery {
-            grid-template-columns: 1fr;
-        }
-    }
+.projects-grid {
+    display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 2.5rem 2rem;
+	max-width: 900px;
+	margin: 0 auto;
+	place-items: center; 
+}
 
-    .proj{
-        border-radius: 20px;
-        box-shadow:gray;
-        overflow:hidden;
-        padding:2em;
-    }
+.project-card {
+	border-radius: 16px;
+	border: 1px solid #c4c4c4;
+	padding: 2rem;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+	transition: transform 0.2s ease, border-color 0.2s ease;
+	font-family: 'Satoshi', Arial, sans-serif;
+	text-align: left;
+    height: 420px;
+}
 
-    .proj img{
-        width:100%;
-        display:block;
-        object-fit: cover;
-        height:180px;
-        overflow: hidden;
-        object-fit: contain;
-        aspect-ratio: 1/1;
-        
-    }
+.project-card:hover {
+	transform: scale(1.025);
+	border-color: #386641;
+}
+
+.project-card img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 8px;
+	margin-bottom: 1rem;
+}
+
+.project-card h3 {
+	font-size: 1.3rem;
+	color: #2e4322;
+	margin: 0.8rem 0 0.5rem 0;
+}
+
+.project-card p {
+	color: #444;
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tech-box {
+  border: 2px solid #386641;
+  color: black;
+  padding: 0.3rem 0.75rem;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+@media (max-width: 500px) {
+	.project-card {
+		grid-template-columns: 1fr;
+	}
+}
 </style>

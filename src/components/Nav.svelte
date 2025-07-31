@@ -7,10 +7,10 @@
         <span class="site-name"><a href="#">Manasa Kudumu</a></span>
     </div>
     <ul class="nav-links">
-        <li><a href="#about" class:active={activeSection === 'about'} on:click={() => activeSection = 'about'}>About</a></li>
         <li><a href="#experience" class:active={activeSection === 'experience'} on:click={() => activeSection = 'experience'}>Experience</a></li>
         <li><a href="#projects" class:active={activeSection === 'projects'} on:click={() => activeSection = 'projects'}>Projects</a></li>
-        <li><a href="#connect" class:active={activeSection === 'connect'} on:click={() => activeSection = 'connect'}>Connect</a></li>
+        <li><a href="#about" class:active={activeSection === 'about'} on:click={() => activeSection = 'about'}>About</a></li>
+
     </ul>
 </nav>
 
