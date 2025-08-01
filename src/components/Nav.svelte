@@ -16,13 +16,14 @@
 
 <style>
     .navbar {
-        position: sticky;
-        top: 0;
-        background-color: #edf0e4;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      background-color: #edf0e4;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
     }
 
     .nav-links {
@@ -67,15 +68,7 @@
       transform: scaleX(1);
     }
 
-    .navbar .nav-links a.active,
-    .navbar .nav-links a[aria-current="page"] {
-      color: #83943d;
-    }
 
-    .navbar .nav-links a.active::after,
-    .navbar .nav-links a[aria-current="page"]::after {
-      transform: scaleX(1);
-    }
 
     .nav-left a {
       color: #83943d;

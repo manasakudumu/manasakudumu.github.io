@@ -7,7 +7,7 @@
       <a href="https://drive.google.com/file/d/1OcfVoHQUOa92jSDu0GewNy3o-p7VtDSA/view?usp=sharing" target="_blank" rel="noopener">→Resume</a>
     </div>
     <div class="footer-meta">
-      <div>Updated 7/24</div>
+      <div>Updated 8/25</div>
       <div>©Manasa Kudumu_2025</div>
     </div>
   </div>

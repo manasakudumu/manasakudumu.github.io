@@ -8,6 +8,7 @@
   import About from "../lib/About.svelte";
   import Connect from "../lib/Connect.svelte";
   import Landing from '../components/Landing.svelte';
+  
 
   let scrollProgress = 0;
 

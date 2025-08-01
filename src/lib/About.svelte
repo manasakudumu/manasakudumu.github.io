@@ -1,4 +1,5 @@
 <script>
+  import FadeIn from '../components/FadeIn.svelte';
   let hobbies = [
     {
       title: "dancing",
@@ -23,6 +24,7 @@
   ];
 </script>
 
+<FadeIn>
 <section class="about">
 <div class="about-section">
   <div class="about-card">
@@ -48,6 +50,7 @@
   </div>
 </div>
 </section>
+</FadeIn>
 
 <style>
 

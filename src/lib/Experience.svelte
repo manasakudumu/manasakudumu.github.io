@@ -1,4 +1,5 @@
 <script>
+    import FadeIn from '../components/FadeIn.svelte';
     const experiences = [
       {
         date: "May 2025 – Present",
@@ -33,7 +34,7 @@
     ];
   </script>
   
-  
+  <FadeIn>
   <section id="experience">
     <div class="timeline">
       {#each experiences as exp}
@@ -51,6 +52,7 @@
       {/each}
     </div>
   </section>
+</FadeIn>
   
   
 

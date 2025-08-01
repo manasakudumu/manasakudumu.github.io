@@ -1,4 +1,5 @@
 <script>
+    import FadeIn from '../components/FadeIn.svelte';
 	let projects = [
 		{
 			title: 'Interactive Foreclosure Visualizer',
@@ -24,6 +25,7 @@
 	];
 </script>
 
+<FadeIn>
 <section id="projects" class="projects-section">
 	<div class="projects-grid">
 		{#each projects as project}
@@ -42,10 +44,10 @@
 		{/each}
 	</div>
 </section>
+</FadeIn>
 
 <style>
 .projects-section {
-	background-color: #f6f9ed;
 	padding: 5rem 2rem;
     max-width: 1300px;
     margin: 0 auto;

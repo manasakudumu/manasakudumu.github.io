@@ -1,5 +1,9 @@
 <script>
   import { onMount } from 'svelte';
+  import { fade } from 'svelte/transition';
+  import FadeIn from '../components/FadeIn.svelte';
+
+
   const messages = [
     "Hello, I'm Manasa.",
     "வணக்கம், நான் மானசா.",
@@ -66,8 +70,8 @@
     };
   });
 </script>
-
-<div class="landing">
+<FadeIn>
+<div class="landing" transition:fade>
   <div class="intro-block">
     <span class="heading-placeholder">Hello! I'm Manasa.</span>
     <div class="boston-row">
@@ -86,6 +90,7 @@
       {/if}
     </button>  
 </div>
+</FadeIn>
 
 
 <style>
