@@ -9,11 +9,11 @@
 			link: 'https://hannahchiou.github.io/hjc-project/' 
 		},
 		{
-			title: 'Accessible Education Platform – Noor',
-			image: 'noor.png',
-			description: 'Mobile app for visually impaired students with audiobooks, talent showcases, and job listings. 1st place at Smart India Hackathon.',
-            technologies: ["MIT App Inventor"],
-			link: 'https://www.youtube.com/watch?v=mkOmThaUvvg' 
+			title: 'Hollywood Gender Bias Graph',
+			image: 'bechdel.png',
+			description: 'Bipartite graph visualization of movies and actors, analyzing gender representation via the Bechdel-Wallace Test using custom graph structures.',
+			technologies: ["Java", "Graphs", "yEd", "OOP"],
+			link: 'https://github.com/manasakudumu/Bechdel-Graph'
 		},
 		{
 			title: 'Bike Watching',
@@ -21,7 +21,21 @@
 			description: 'Interactive map of Boston bike traffic with dynamic filters and animated flows using Svelte, D3.js, and Mapbox.',
             technologies: ["Svelte", "D3.js", "Mapbox"],
 			link: 'https://manasakudumu.github.io/bikingviz1/'
-		}
+		},
+		{
+			title: 'Accessible Education Platform – Noor',
+			image: 'noor.png',
+			description: 'Mobile app for visually impaired students with audiobooks, talent showcases, and job listings. 1st place at Smart India Hackathon.',
+            technologies: ["MIT App Inventor"],
+			link: 'https://www.youtube.com/watch?v=mkOmThaUvvg' 
+		},
+		{
+			title: 'Bubble – Food Social Media App',
+			image: 'bubble.png',
+			description: 'Social media inspired platform where Wellesley students log meals, reflect on mood, and share food reviews. Integrated with Wellesley Fresh API to fetch real dining hall menus by day.',
+			technologies: ["Streamlit", "Python", "SQLite", "Cloudinary"],
+			link: 'https://bubble.streamlit.app'
+		},
 	];
 </script>
 
