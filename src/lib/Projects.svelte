@@ -9,6 +9,27 @@
 			link: 'https://hannahchiou.github.io/hjc-project/' 
 		},
 		{
+			title: 'Seam Carver Image Resizer',
+			image: 'seamcarver5.png', 
+			description: 'Employed dynamic programming to create an image resizing program that could reduce the width and height of a given image with minimal data/feature loss.',
+			technologies: ["Java", "Flask", "Pillow"],
+			link: 'https://github.com/manasakudumu/cs-portfolio'
+		},
+		{
+			title: 'Trading Bot Backtester',
+			image: 'trade.png',
+			description: 'Simulates algorithmic trading using real-time intraday data from the Alpha Vantage API. Combines SMA/EMA crossover strategies with RSI filtering, stop-loss, and trailing stop logic.',
+			technologies: ["Python", "Pandas", "Matplotlib", "requests"],
+			link: 'https://github.com/manasakudumu/trading-bot'
+		},
+		{
+			title: 'Shell',
+			image: 'shell.png',
+			description: 'Built a custom Unix shell in C supporting command parsing, piping, I/O redirection, background jobs, and signal handling.',
+			technologies: ["C"],
+			link: 'https://github.com/manasakudumu/custom-shell'
+		},
+		{
 			title: 'Hollywood Gender Bias Graph',
 			image: 'bechdel.png',
 			description: 'Bipartite graph visualization of movies and actors, analyzing gender representation via the Bechdel-Wallace Test using custom graph structures.',
@@ -23,16 +44,16 @@
 			link: 'https://manasakudumu.github.io/bikingviz1/'
 		},
 		{
-			title: 'Accessible Education Platform – Noor',
+			title: 'Noor: Accessible Education Platform',
 			image: 'noor.png',
 			description: 'Mobile app for visually impaired students with audiobooks, talent showcases, and job listings. 1st place at Smart India Hackathon.',
             technologies: ["MIT App Inventor"],
 			link: 'https://www.youtube.com/watch?v=mkOmThaUvvg' 
 		},
 		{
-			title: 'Bubble – Food Social Media App',
+			title: 'Bubble : Food Social Media App',
 			image: 'bubble.png',
-			description: 'Social media inspired platform where Wellesley students log meals, reflect on mood, and share food reviews. Integrated with Wellesley Fresh API to fetch real dining hall menus by day.',
+			description: 'Social media inspired app where Wellesley students can log meals, reflect on mood, and share food reviews. Integrated with Wellesley Fresh API to fetch real dining hall menus by day.',
 			technologies: ["Streamlit", "Python", "SQLite", "Cloudinary"],
 			link: 'https://bubble.streamlit.app'
 		},
