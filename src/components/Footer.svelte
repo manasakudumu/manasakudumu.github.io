@@ -1,5 +1,6 @@
 <script>
   import FadeIn from "./FadeIn.svelte";
+  import { base } from '$app/paths';
 
 </script>
 <FadeIn >
@@ -22,7 +23,7 @@
 <style>
   .footer {
     width: 100%;
-    background: #eaeae3 url('bg.png') center 70% / 100% 200% no-repeat;
+    background: #eaeae3 url('/bg.png') center 70% / 100% 200% no-repeat;
     border-top: 2px solid #232323;
     font-family: 'Inter', Arial, sans-serif;
     padding: 1.2rem 0;

@@ -52,7 +52,6 @@
             <span class="role">{exp.role}</span>
           </span>
         </div>
-
         {#if openStates[i]}
           <div class="exp-desc" in:slide={{ duration: 300 }} out:slide={{ duration: 300 }}>
             <img class="exp-logo" src={exp.img} alt="{exp.org} logo" />
@@ -70,14 +69,12 @@
     box-sizing: border-box;
     font-family: 'Satoshi', Arial, sans-serif;
   }
-
   .exp-item {
     border-top: 1px solid #ccc;
     overflow: hidden;
   }
   .exp-item:first-child { border-top: none; }
   .exp-item + .exp-item { margin-top: 1rem; }
-
   .exp-summary {
     display: grid;
     grid-template-columns: 180px 1fr 24px;
@@ -96,7 +93,6 @@
   .exp-item.open .exp-summary::after {
     transform: rotate(-90deg);
   }
-
   .date {
     font-style: italic;
     color: #3e3e3e;
@@ -111,7 +107,6 @@
   }
   .org { font-weight: 700; }
   .role { font-weight: 500; color: #555; }
-
   .exp-desc {
     display: grid;
     grid-template-columns: 100px 1fr;
