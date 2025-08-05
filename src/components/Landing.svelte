@@ -107,7 +107,7 @@
     align-items: flex-start;
     text-align: left;
     padding: 2.5rem 7rem 0 7rem;
-    background: #f6f9ed url("{base}/bg.png") right center/cover no-repeat;   
+    background: #eaeae3 url('/bg.png') right center/cover no-repeat; 
     background-attachment: local;
     background-blend-mode: normal;
   }
