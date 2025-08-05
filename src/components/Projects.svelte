@@ -13,7 +13,7 @@
 			image: 'seamcarver5.png', 
 			description: 'Employed dynamic programming to create an image resizing program that could reduce the width and height of a given image with minimal data/feature loss.',
 			technologies: ["Java", "Flask", "Pillow"],
-			link: 'https://github.com/manasakudumu/cs-portfolio'
+			link: 'https://github.com/manasakudumu/Seam-Carver'
 		},
 		{
 			title: 'Trading Bot Backtester',
@@ -97,6 +97,7 @@
 	  max-width: 470px;
 	  border-radius: 16px;
 	  border: 1px solid #c4c4c4;
+	  background: #F9F9ED;
 	  padding: 2rem;
 	  transition: transform 0.2s ease, border-color 0.2s ease;
 	}
@@ -135,5 +136,38 @@
 	  font-size: 0.85rem;
 	  font-weight: 600;
 	  background: transparent;
+	}
+	@media (max-width: 960px) {
+		.p-section {
+			padding: 3rem 3rem;
+		}
+		.p-grid {
+			grid-template-columns: 1fr; 
+			justify-items: center;
+		}
+		.p-card {
+			max-width: 100%;
+		}
+	}
+	@media (max-width: 500px) {
+		.p-section {
+			padding: 2rem 1.2rem;
+		}
+		.p-card {
+			padding: 1.4rem;
+		}
+		.p-card img {
+			height: 180px;
+		}
+		.p-card h3 {
+			font-size: 1.15rem;
+		}
+		.p-card p {
+			font-size: 0.95rem;
+		}
+		.tech-box {
+			font-size: 0.78rem;
+			padding: 0.25rem 0.6rem;
+		}
 	}
 </style>

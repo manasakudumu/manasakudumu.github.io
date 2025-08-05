@@ -4,7 +4,7 @@
     { title: "dancing", description: "the best stress buster, hands down", icon: "dance.png" },
     { title: "rock climbing", description: "reaching new heights and tiny holds", icon: "climb.png" },
     { title: "cafe hopping", description: "i love my daily matcha + bagel combo <3", icon: "whisk.png" },
-    { title: "reading", description: "currently into jefferey archer and murakami", icon: "book.png" },
+    { title: "reading", description: "currently: jeffrey archer and murakami", icon: "book.png" },
     // { title: "reading", description: "i would love some recs!", icon: "book.png" }
   ];
 </script>
@@ -47,6 +47,7 @@
     display: flex;
     align-items: center;
     gap: 2.5rem;
+    flex-wrap: wrap;
   }
   .about-img {
     width: 300px;
@@ -74,9 +75,7 @@
     max-width: 100%;
   }
   .hobbies h3 {
-    color: #6C7B3E;
-    font-family: 'Satoshi', Arial, sans-serif;
-    margin-bottom: 2rem;
+    margin-bottom: 0.7rem;
   }
   .hobby-list {
     display: flex;
@@ -86,10 +85,10 @@
     flex-wrap: wrap;
   }
   .hobby-card {
-    background: #d6e0ba;
+    background: #ccd6b1;
     border-radius: 18px;
     padding: 1.2rem 1.2rem 1.8rem 1.2rem;
-    width: 220px;
+    width: 223.6px;
     min-height: 140px;
     display: flex;
     flex-direction: column;
@@ -109,9 +108,9 @@
     z-index: 2;
   }
   .hobby-title {
-    font-family: 'Rubik', 'Inter', Arial, sans-serif;
-    font-weight: 500;
-    font-size: 1.5rem;
+    font-family: 'Satoshi', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
     color: #697741;
     margin-bottom: 0.4rem;
   }
@@ -121,5 +120,20 @@
     color: #757a6b;
     margin-bottom: 0.4rem;
     padding-right:7em;
+  }
+  @media (max-width: 860px) {
+    .about-card {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .about-img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      align-self: center;
+    }
+    .about-section {
+      padding: 2rem 2rem; 
+    }
   }
 </style>

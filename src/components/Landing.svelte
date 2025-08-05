@@ -2,7 +2,6 @@
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
   import FadeIn from '../components/FadeIn.svelte';
-  import { base } from '$app/paths';
   const messages = [
     "Hello, I'm Manasa.",
     "வணக்கம், நான் மானசா.",
@@ -13,10 +12,9 @@
   let charIndex = 0;
   let typing = true;
   let isPlaying = false;     
-  let typewriterTimeout = null;
+  let helloTimeout = null;
   let bostonTime = "";
-
-  function updateBostonTime() {
+  function updateTime() {
     bostonTime = new Date().toLocaleTimeString("en-US", {
       timeZone: "America/New_York",
       hour: '2-digit',
@@ -25,81 +23,83 @@
     });
   }
 
-  function typeWriter() {
+  function hello() {
     if (typing) {
       if (charIndex < messages[messageIndex].length) {
         typedName += messages[messageIndex][charIndex];
         charIndex++;
-        typewriterTimeout = setTimeout(typeWriter, 60);
+        helloTimeout = setTimeout(hello, 60);
       } else {
         typing = false;
         if (isPlaying) {
-          typewriterTimeout = setTimeout(typeWriter, 1500);
+          helloTimeout = setTimeout(hello, 1500);
         }
       }
     } else if (isPlaying) {
       if (charIndex > 0) {
         typedName = typedName.slice(0, -1);
         charIndex--;
-        typewriterTimeout = setTimeout(typeWriter, 30);
+        helloTimeout = setTimeout(hello, 30);
       } else {
         typing = true;
         messageIndex = (messageIndex + 1) % messages.length;
-        typewriterTimeout = setTimeout(typeWriter, 0);
+        helloTimeout = setTimeout(hello, 0);
       }
     }
   }
 
-  function handlePlayPause() {
+  function handlePlay() {
     isPlaying = !isPlaying;
     if (isPlaying && !typing && charIndex === messages[messageIndex].length) {
-      typewriterTimeout = setTimeout(typeWriter, 1500);
+      helloTimeout = setTimeout(hello, 1500);
     }
   }
 
   onMount(() => {
-    typeWriter();
-    updateBostonTime();
-    const interval = setInterval(updateBostonTime, 1000);
+    hello();
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
     return () => {
-      if (typewriterTimeout) clearTimeout(typewriterTimeout);
+      if (helloTimeout) clearTimeout(helloTimeout);
       clearInterval(interval);
     };
   });
 </script>
 
 <FadeIn>
-<div class="landing" transition:fade>
-  <div class="intro-block">
-    <span class="heading-placeholder">Hello! I'm Manasa.</span>
-    <div class="boston-row">
-      <span>Based in Boston <span class="arrow">→</span></span>
-      <span class="boston-time">{bostonTime}</span>
+  <div class="landing" transition:fade>
+    <img src="bg.png" alt="background" class="bg-img" />
+    <div class="intro-block">
+      <span class="heading-placeholder">Hello! I'm Manasa.</span>
+      <div class="boston-row">
+        <span>Based in Boston <span class="arrow">→</span></span>
+        <span class="boston-time">{bostonTime}</span>
+      </div>
+      <hr class="line">
+      <h1 class="typing">{typedName}</h1>
+      <p class="subheading">
+        a <em>multidisciplinary developer and researcher</em><br/> studying 
+        <a href="https://www.wellesley.edu/academics/department/computer-science" target="_blank" rel="noopener">Computer Science</a> +
+        <a href="https://www.wellesley.edu/academics/department/economics" target="_blank" rel="noopener">Economics</a> @ Wellesley College<br/>
+        <span class="crossreg">cross-registered in 
+          <a href="https://www.eecs.mit.edu/" target="_blank" rel="noopener">EECS</a> @ Massachusetts Institute of Technology
+        </span>
+      </p>
     </div>
-    
-    <hr class="line">
-    <h1 class="typing">{typedName}</h1>
-    <p class="subheading">
-      a <em>multidisciplinary developer and researcher</em><br/> studying 
-      <a href="https://www.wellesley.edu/academics/department/computer-science" target="_blank" rel="noopener">Computer Science</a> +
-      <a href="https://www.wellesley.edu/academics/department/economics" target="_blank" rel="noopener">Economics</a> @ Wellesley College<br/>
-      <span class="crossreg">cross-registered in 
-        <a href="https://www.eecs.mit.edu/" target="_blank" rel="noopener">EECS</a> @ Massachusetts Institute of Technology
-      </span>
-    </p>
-  </div>
-    <button class="typewriter-toggle" on:click={handlePlayPause} aria-label={isPlaying ? 'Pause typewriter' : 'Play typewriter'}>
+    <button class="hello-toggle" on:click={handlePlay} aria-label={isPlaying ? 'Pause hello' : 'Play hello'}>
       {#if isPlaying}
         ⏸️
       {:else}
         ▶️
       {/if}
     </button>  
-</div>
+  </div>
 </FadeIn>
+<hr class="landing-bottom-line" />
 
 <style>
   .landing {
+    position: relative;
     min-height: 85vh;
     display: flex;
     flex-direction: column;
@@ -107,9 +107,18 @@
     align-items: flex-start;
     text-align: left;
     padding: 2.5rem 7rem 0 7rem;
-    background: #eaeae3 url('/bg.png') right center/cover no-repeat; 
     background-attachment: local;
     background-blend-mode: normal;
+    overflow: hidden; 
+  }
+  .bg-img {
+    position: absolute;
+    top: 0;
+    left: 0; 
+    height: 100%;
+    width: 100%; 
+    z-index: -1;
+    pointer-events: none;
   }
   .intro-block {
     max-width: 720px;
@@ -155,7 +164,7 @@
     letter-spacing: -1px;
     min-height: 4.5rem;
   }
-  .typewriter-toggle {
+  .hello-toggle {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
@@ -167,7 +176,7 @@
     cursor: pointer;
     transition: background 0.2s;
   }
-  .typewriter-toggle:hover {
+  .hello-toggle:hover {
     background: #d6e0ba;
   }
   .subheading {
@@ -189,11 +198,85 @@
   }
   .subheading a:hover {
     text-decoration: underline;
+    color: #6C7B3E;
   }
   .line{
     height: 1px;              
     background-color: #000;   
     border: none;
     margin: 1.5rem 0;
+  }
+  .landing-bottom-line {
+    height: 2px;
+    background-color: #232323;
+    border: none;
+    width: 100%;
+    margin: 0;
+  }
+  @media (max-width: 1024px) {
+    .landing {
+      padding: 2rem 3rem 0 3rem;
+    }
+    .intro-block {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
+    .typing {
+      font-size: 3rem;
+      min-height: 3.5rem;
+    }
+    .heading-placeholder {
+      font-size: 3rem;
+    }
+    .subheading {
+      font-size: 1.1rem;
+    }
+  }
+  @media (max-width: 768px) {
+    .landing {
+      padding: 2rem 2rem 0 2rem;
+    }
+    .typing {
+      font-size: 2.2rem;
+      min-height: 2.5rem;
+    }
+    .heading-placeholder {
+      font-size: 2.2rem;
+    }
+    .subheading {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .boston-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.3em;
+    }
+    .hello-toggle {
+      bottom: 1rem;
+      right: 1rem;
+      padding: 0.8rem 0.9rem;
+      font-size: 1.4rem;
+    }
+  }
+  @media (max-width: 480px) {
+    .landing {
+      padding: 1.5rem 1rem 0 1rem;
+    }
+    .typing {
+      font-size: 1.8rem;
+      min-height: 2rem;
+    }
+
+    .heading-placeholder {
+      font-size: 1.8rem;
+    }
+    .subheading {
+      font-size: 0.95rem;
+    }
+    .hello-toggle {
+      font-size: 1.2rem;
+      padding: 0.6rem 0.7rem;
+    }
   }
 </style>

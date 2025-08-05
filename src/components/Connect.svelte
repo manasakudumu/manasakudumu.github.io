@@ -7,7 +7,6 @@
       </div>      
     </div>
 </section>
-  
 
 <style>
     .connect-band {            

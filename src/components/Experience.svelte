@@ -69,12 +69,7 @@
     box-sizing: border-box;
     font-family: 'Satoshi', Arial, sans-serif;
   }
-  .exp-item {
-    border-top: 1px solid #ccc;
-    overflow: hidden;
-  }
-  .exp-item:first-child { border-top: none; }
-  .exp-item + .exp-item { margin-top: 1rem; }
+  .exp-item + .exp-item { margin-top: 2.5rem; }
   .exp-summary {
     display: grid;
     grid-template-columns: 180px 1fr 24px;
@@ -124,5 +119,36 @@
     color: #333;
     line-height: 1.6;
     font-size: 1rem;
+  }
+  @media (max-width: 900px) {
+    #experience {
+      padding: 2.5rem 2rem 0 2rem;
+    }
+    .exp-summary {
+      grid-template-columns: 1fr; 
+      gap: 0.5rem;
+    }
+    .exp-desc {
+      grid-template-columns: 1fr; 
+      padding: 1rem 0 1rem 0;
+    }
+    .exp-logo {
+      width: 80px;
+      margin-bottom: 0.5rem;
+    }
+  }
+  @media (max-width: 500px) {
+    .org-role {
+      font-size: 1rem;
+    }
+    .date {
+      font-size: 0.9rem;
+    }
+    .exp-desc p {
+      font-size: 0.95rem;
+    }
+    .exp-logo {
+      width: 70px;
+    }
   }
 </style>
