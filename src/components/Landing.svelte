@@ -13,16 +13,15 @@
   let typing = true;
   let isPlaying = false;     
   let helloTimeout = null;
-  let bostonTime = "";
+  let bosTime = "";
   function updateTime() {
-    bostonTime = new Date().toLocaleTimeString("en-US", {
+    bosTime = new Date().toLocaleTimeString("en-US", {
       timeZone: "America/New_York",
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit'
     });
   }
-
   function hello() {
     if (typing) {
       if (charIndex < messages[messageIndex].length) {
@@ -47,14 +46,12 @@
       }
     }
   }
-
   function handlePlay() {
     isPlaying = !isPlaying;
     if (isPlaying && !typing && charIndex === messages[messageIndex].length) {
       helloTimeout = setTimeout(hello, 1500);
     }
   }
-
   onMount(() => {
     hello();
     updateTime();
@@ -65,15 +62,14 @@
     };
   });
 </script>
-
 <FadeIn>
   <div class="landing" transition:fade>
     <img src="bg.png" alt="background" class="bg-img" />
     <div class="intro-block">
       <span class="heading-placeholder">Hello! I'm Manasa.</span>
-      <div class="boston-row">
+      <div class="bos-row">
         <span>Based in Boston <span class="arrow">→</span></span>
-        <span class="boston-time">{bostonTime}</span>
+        <span class="bos-time">{bosTime}</span>
       </div>
       <hr class="line">
       <h1 class="typing">{typedName}</h1>
@@ -126,7 +122,7 @@
     margin-left: 3rem;
     margin-top: 2rem;
   }
-  .boston-row {
+  .bos-row {
     font-size: 1.1rem;
     font-weight: 500;
     color: #485935;
@@ -136,12 +132,12 @@
     align-items: baseline;
     gap: 1.1em;
   }
-  .boston-row .arrow {
+  .bos-row .arrow {
     font-weight: 600;
     margin: 0 0.17em 0 0.19em;
     font-size: 1.1em;
   }
-  .boston-time {
+  .bos-time {
     color: #485935;
     letter-spacing: 0.06em;
     font-size: 1.08em;
@@ -247,7 +243,7 @@
       font-size: 1rem;
       line-height: 1.5;
     }
-    .boston-row {
+    .bos-row {
       flex-direction: column;
       align-items: flex-start;
       gap: 0.3em;

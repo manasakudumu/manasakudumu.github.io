@@ -59,7 +59,6 @@
 		},
 	];
 </script>
-
 <FadeIn>
 	<section id="projects" class="p-section">
 	  <div class="p-grid">
@@ -80,7 +79,6 @@
 	  </div>
 	</section>
 </FadeIn>
-  
 <style>
 	.p-section {
 	  padding: 5rem 10rem;      
@@ -146,7 +144,7 @@
 			justify-items: center;
 		}
 		.p-card {
-			max-width: 100%;
+			max-width: 90%;
 		}
 	}
 	@media (max-width: 500px) {

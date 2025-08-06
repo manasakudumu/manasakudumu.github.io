@@ -40,9 +40,8 @@
     ];
     let openStates = Array(experiences.length).fill(false);
 </script>
-
 <FadeIn>
-  <section id="experience">
+  <section id="exp">
     {#each experiences as exp, i}
       <div class="exp-item" class:open={openStates[i]}>
         <div class="exp-summary" on:click={() => openStates[i] = !openStates[i]}>
@@ -54,7 +53,9 @@
         </div>
         {#if openStates[i]}
           <div class="exp-desc" in:slide={{ duration: 300 }} out:slide={{ duration: 300 }}>
-            <img class="exp-logo" src={exp.img} alt="{exp.org} logo" />
+            <div class="exp-logo-wrapper">
+              <img class="exp-logo" src={exp.img} alt="{exp.org} logo" />
+            </div>
             <p>{exp.desc}</p>
           </div>
         {/if}
@@ -62,9 +63,8 @@
     {/each}
   </section>
 </FadeIn>
-
 <style>
-  #experience {
+  #exp {
     padding: 2.5rem 10rem 0 10rem;
     box-sizing: border-box;
     font-family: 'Satoshi', Arial, sans-serif;
@@ -104,15 +104,21 @@
   .role { font-weight: 500; color: #555; }
   .exp-desc {
     display: grid;
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 180px 1fr;
     gap: 1rem;
-    padding: 0.5rem 0 1rem 180px;
+    padding: 0.5rem 0 1.5rem 0;
+    align-items: flex-start;
+  }
+  .exp-logo-wrapper {
+    display: flex;
+    justify-content: flex-start;
     align-items: start;
+    padding-left: 10px;
   }
   .exp-logo {
-    width: 100px;
+    width: 80px;
+    height: auto;
     object-fit: contain;
-    justify-self: start;
   }
   .exp-desc p {
     margin: 0;
@@ -121,7 +127,7 @@
     font-size: 1rem;
   }
   @media (max-width: 900px) {
-    #experience {
+    #exp {
       padding: 2.5rem 2rem 0 2rem;
     }
     .exp-summary {

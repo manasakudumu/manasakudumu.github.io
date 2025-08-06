@@ -1,7 +1,6 @@
 <script>
   import FadeIn from "./FadeIn.svelte";
 </script>
-
 <FadeIn>
   <footer class="footer">
     <img src="bg.png" alt="footer background" class="footer-img" />
@@ -19,7 +18,6 @@
     </div>
   </footer>
 </FadeIn>
-
 <style>
   .footer {
     position: relative;

@@ -5,10 +5,8 @@
     { title: "rock climbing", description: "reaching new heights and tiny holds", icon: "climb.png" },
     { title: "cafe hopping", description: "i love my daily matcha + bagel combo <3", icon: "whisk.png" },
     { title: "reading", description: "currently: jeffrey archer and murakami", icon: "book.png" },
-    // { title: "reading", description: "i would love some recs!", icon: "book.png" }
   ];
 </script>
-
 <FadeIn>
   <section class="about-section">
     <div class="about-card">
@@ -33,7 +31,6 @@
     </div>
   </section>
 </FadeIn>
-
 <style>
   .about-section {
     padding: 2rem 10rem;          

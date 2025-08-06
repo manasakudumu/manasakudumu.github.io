@@ -5,11 +5,17 @@
   import Experience from "../components/Experience.svelte";
   import Projects from "../components/Projects.svelte";
   import About from "../components/About.svelte";
-  import Connect from "../components/Connect.svelte";
   import Landing from '../components/Landing.svelte';
   import FadeIn from '../components/FadeIn.svelte';
-
   let scrollProgress = 0;
+  let numImages = 0;
+  let clickSound;
+  function playClickSound() {
+    if (clickSound) {
+      clickSound.currentTime = 0;
+      clickSound.play();
+    }
+  }
   function updateScrollProgress() {
     const scrollTop = window.scrollY;
     const docHeight = document.body.scrollHeight - window.innerHeight;
@@ -17,31 +23,42 @@
   }
   onMount(() => {
     window.addEventListener('scroll', updateScrollProgress);
+    const content = document.querySelector('.content-before-footer');
+    const imageHeight = 300;
+    if (content) {
+      const contentHeight = content.offsetHeight;
+      numImages = Math.ceil(contentHeight / imageHeight);
+    }
     return () => window.removeEventListener('scroll', updateScrollProgress);
   });
 </script>
 
-<Nav />
-<img src="/check.png" alt="grainy grid background" class="bg-overlay-img" />
-
+<audio bind:this={clickSound} src="/sounds/click.mp3" preload="auto"></audio>
+<Nav {playClickSound} />
 <div class="progress-container">
   <div class="progress-bar" style="width: {scrollProgress}%"></div>
 </div>
-
-<FadeIn>
-  <Landing />
-</FadeIn>
-<div class="background-wrapper">
-  <br id="experience"><br><br>
-  <h2>Experience</h2>
-  <Experience />
-  <br id="projects"><br>
-  <h2>Projects</h2>
-  <Projects />
-  <br><br>
-  <h2 id="about">It's nice to meet you!</h2>
-  <About />
-  <br id="connect"><br><br><br>
+<div class="content-before-footer">
+  <div class="bg-img-wrapper">
+    {#each Array(numImages) as _, i}
+      <img src="/check.png" alt="grainy grid background" class="bg-img" />
+    {/each}
+  </div>
+  <FadeIn>
+    <Landing />
+  </FadeIn>
+  <div class="background-wrapper">
+    <br id="experience"><br><br>
+    <h2>Experience</h2>
+    <Experience />
+    <br id="projects"><br>
+    <h2>Projects</h2>
+    <Projects />
+    <br id="about"><br>
+    <h2>It's nice to meet you!</h2>
+    <About />
+    <br id="connect"><br><br><br>
+  </div>
 </div>
 <FadeIn>
   <Footer />
@@ -54,20 +71,6 @@
     background: #F6F9ED;
     font-family: 'Inter', Arial, sans-serif;
     position: relative;
-  }
-  .bg-overlay-img {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -100;
-    opacity: 0.6; 
-    pointer-events: none;
-  }
-  h2 {
-    text-align: center;
   }
   .progress-container {
     width: 100%;
@@ -86,5 +89,27 @@
   }
   .background-wrapper {
     padding: 2rem 0;
+  }
+  .bg-img-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .content-before-footer {
+    position: relative;
+    z-index: 1;
+  }
+  .bg-img {
+    width: 100%;
+    display: block;
+    opacity: 0.6;
+  }
+  h2 {
+    text-align: center;
   }
 </style>
