@@ -9,7 +9,7 @@
         <a href="mailto:mk122@wellesley.edu">→Email</a>
         <a href="https://github.com/manasakudumu" target="_blank" rel="noopener">→GitHub</a>
         <a href="https://www.linkedin.com/in/manasa-kudumu-098670215/" target="_blank" rel="noopener">→LinkedIn</a>
-        <a href="https://drive.google.com/file/d/1OcfVoHQUOa92jSDu0GewNy3o-p7VtDSA/view?usp=sharing" target="_blank" rel="noopener">→Resume</a>
+        <a href="https://drive.google.com/file/d/151vWr-nDxFcxRiEkzgkeY5IPg-A-BsZY/view?usp=sharing" target="_blank" rel="noopener">→Resume</a>
       </div>
       <div class="meta">
         <div>Updated 8/25</div>
