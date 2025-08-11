@@ -4,7 +4,7 @@ const dev = process.argv.includes('dev');
 export default {
   kit: {
     adapter: adapter({ fallback: '404.html' }),
-    paths: { base: dev ? '' : '/cs-portfolio' },
+    paths: { base: '' },           
     prerender: { entries: ['*'] }
   }
 };
