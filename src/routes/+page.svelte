@@ -48,7 +48,7 @@
     <Landing />
   </FadeIn>
   <div class="background-wrapper">
-    <br id="experience"><br><br>
+    <br id="experience"><br>
     <h2>Experience</h2>
     <Experience />
     <br id="projects"><br>

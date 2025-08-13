@@ -5,7 +5,7 @@
 <nav class="navbar">
   <div class="nav-inner">
     <div class="nav-left">
-      <span class="site-name"><a href="#">Manasa Kudumu</a></span>
+      <span class="site-name"><a href="#" on:click={() => { playClickSound(); }}>Manasa Kudumu</a></span>
     </div>
     <ul class="links">
       <li><a href="#experience" class:active={activeSection === 'experience'} on:click={() => { activeSection = 'experience'; playClickSound(); }}>Experience</a></li>

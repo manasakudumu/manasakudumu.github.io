@@ -22,38 +22,42 @@
       second: '2-digit'
     });
   }
+  function schedule(ms) {
+    if (helloTimeout) clearTimeout(helloTimeout);
+    helloTimeout = setTimeout(hello, ms);
+  }
   function hello() {
     if (typing) {
       if (charIndex < messages[messageIndex].length) {
-        typedName += messages[messageIndex][charIndex];
-        charIndex++;
-        helloTimeout = setTimeout(hello, 60);
+        typedName += messages[messageIndex][charIndex++];
+        schedule(60);
       } else {
         typing = false;
-        if (isPlaying) {
-          helloTimeout = setTimeout(hello, 1500);
-        }
+        schedule(1500); 
       }
-    } else if (isPlaying) {
-      if (charIndex > 0) {
-        typedName = typedName.slice(0, -1);
-        charIndex--;
-        helloTimeout = setTimeout(hello, 30);
-      } else {
-        typing = true;
-        messageIndex = (messageIndex + 1) % messages.length;
-        helloTimeout = setTimeout(hello, 0);
-      }
+      return;
+    }
+    if (!isPlaying) return;       
+    if (charIndex > 0) {
+      typedName = typedName.slice(0, -1);
+      charIndex--;
+      schedule(30);
+    } else {
+      typing = true;
+      messageIndex = (messageIndex + 1) % messages.length;
+      schedule(0);
     }
   }
   function handlePlay() {
     isPlaying = !isPlaying;
-    if (isPlaying && !typing && charIndex === messages[messageIndex].length) {
-      helloTimeout = setTimeout(hello, 1500);
+    if (isPlaying) {
+      hello();
+    } else {
+      if (!typing && helloTimeout) clearTimeout(helloTimeout);
     }
   }
   onMount(() => {
-    hello();
+    hello(); 
     updateTime();
     const interval = setInterval(updateTime, 1000);
     return () => {
