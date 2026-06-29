@@ -3,16 +3,23 @@
     import { slide } from 'svelte/transition';
     const experiences = [
       {
-        date: "May 2025 – Present",
-        org: "MIT Computer Science & Artificial Intelligence Laboratory | Mantis AI",
-        role: "Software Engineer and Research Intern",
+        date: "Sep 2025 - Present",
+        org: "MIT Media Lab",
+        role: "Research Assistant",
+        img: "media.png",
+        desc: "Fluid Interfaces Group."
+      },
+      {
+        date: "May 2025 – Sep 2025",
+        org: "Mantis AI",
+        role: "Software Engineer Intern",
         img: "mitCSAIL.png",
         desc: "Developing an interactive AI-powered platform for large-scale geospatial and financial analysis. Leveraged OpenAI for semantic product-to-industry mapping and dynamic cluster-based visualization."
       },
       {
         date: "May 2024 – Present",
         org: "Wellesley College Accessibility Lab",
-        role: "Undergraduate Research Assistant",
+        role: "Research Assistant",
         img: "wells.png",
         desc: "Assisted Professor Gadiraju in Google-funded research on how users with disabilities use LLMs. Interviewed people with disabilities and maintained a comprehensive database of interactions and conducted diary studies to understand how they use generative AI chatbots, particularly Gemini. Used qualitative coding to categorize these use cases. Presented our paper at the ACM SIGACCESS Conference on Computers and Accessibility in St.Johns, Canada and won second place in the undergraduate category as part of their Student Research Competition."
       },
@@ -32,7 +39,7 @@
       },
       {
         date: "Dec 2021 – Jun 2023",
-        org: "Technovation – Team Noor",
+        org: "Technovation Noor",
         role: "Founder & CEO",
         img: "technovation.png",
         desc: "Led an all-girls team of three as the CEO. We developed a mobile app called 'Noor' using MIT App Inventor. Noor strives to promote education and inclusivity among visually impaired students by providing them with scribes, audiobooks, a platform to showcase their talents, a list of job opportunities that they might require in the future as well as conducting events/ forums. NGOs/ volunteers can make use of this app by volunteering as scribes and donating. Worked on the entrepreneurial part of the app as well which comprised of designing a business plan to bring the app to the market and filmed a pitch/ demo video presenting Noor's goals and functionalities."

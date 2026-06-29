@@ -7,6 +7,7 @@
   import About from "../components/About.svelte";
   import Landing from '../components/Landing.svelte';
   import FadeIn from '../components/FadeIn.svelte';
+  import Research from '../components/Research.svelte';
   let scrollProgress = 0;
   let numImages = 0;
   let clickSound;
@@ -51,6 +52,9 @@
     <br id="experience"><br>
     <h2>Experience</h2>
     <Experience />
+    <br id="research"><br>
+    <h2>Research</h2>
+    <Research />
     <br id="projects"><br>
     <h2>Projects</h2>
     <Projects />

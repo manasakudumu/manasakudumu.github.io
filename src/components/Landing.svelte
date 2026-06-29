@@ -78,7 +78,7 @@
       <hr class="line">
       <h1 class="typing">{typedName}</h1>
       <p class="subheading">
-        a <em>multidisciplinary developer and researcher</em><br/> studying 
+        a <em>human-centered AI developer and researcher</em><br/> studying 
         <a href="https://www.wellesley.edu/academics/department/computer-science" target="_blank" rel="noopener">Computer Science</a> +
         <a href="https://www.wellesley.edu/academics/department/economics" target="_blank" rel="noopener">Economics</a> @ Wellesley College<br/>
         <span class="crossreg">cross-registered in 
