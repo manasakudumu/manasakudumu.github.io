@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   export let playClickSound = () => {};
-  let activeSection = "experience";
+  let activeSection = "";
   onMount(() => {
     const observer = new IntersectionObserver(
       (entries) => {

@@ -12,7 +12,7 @@
     <div class="about-card">
       <img class="about-img" src="6C35.jpg" alt="Manasa by Waban Lake" />
       <div class="about-bio">
-        <p>I'm a junior at Wellesley College majoring in Computer Science and Economics. My work focuses on the intersection of accessibility, AI, and inclusive design. I build research-informed tools and design experiences that empower underserved communities.</p>
+        <p>I'm a senior at Wellesley College majoring in Computer Science and Economics. My work focuses on the intersection of accessibility, AI, and inclusive design. I build research-informed tools and design experiences that empower underserved communities.</p>
         <p>Through research at Wellesley, I've explored how disabled users interact with large language models and contributed to work on equitable AI design. My academic background gives me a strong foundation, but much of my learning comes from real-world projects and self-driven exploration.</p>
         <p>I'm passionate about applying machine learning, computer vision, and human-centered design to solve societal challenges, one commit at a time. I'm also deeply interested in linguistics, quantitative economics, and financial systems, especially how NLP and AI can reshape decision-making, unlock equitable access to financial tools, and bridge the gap between human and machine understanding. In the future, I want to work on problems that sit at the intersection of language, intelligence, and economic behavior, building models that are not only technically robust but also socially aware.</p>
       </div>

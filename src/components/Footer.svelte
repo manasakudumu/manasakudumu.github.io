@@ -12,8 +12,8 @@
         <a href="https://drive.google.com/file/d/151vWr-nDxFcxRiEkzgkeY5IPg-A-BsZY/view?usp=sharing" target="_blank" rel="noopener">→Resume</a>
       </div>
       <div class="meta">
-        <div>Updated 8/25</div>
-        <div>©Manasa Kudumu_2025</div>
+        <div>Updated 6/26</div>
+        <div>©Manasa Kudumu_2026</div>
       </div>
     </div>
   </footer>
@@ -69,4 +69,37 @@
     opacity: 0.93;
     gap: 0.5rem;
   }
+  @media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: row;   /* keep horizontal */
+    gap: 1rem;
+    flex-wrap: nowrap;     /* don't wrap */
+    overflow-x: auto;      /* allow scrolling if needed */
+    white-space: nowrap;
+    justify-content: center;
+    width: 100%;
+    scrollbar-width: none;
+  }
+
+  .links::-webkit-scrollbar {
+    display: none;
+  }
+  .links a {
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .meta {
+    align-items: center;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+}
 </style>
