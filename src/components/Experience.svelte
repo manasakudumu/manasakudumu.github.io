@@ -87,10 +87,12 @@
   }
   .exp-summary::after {
     content: '›';
-    justify-self: center;
+    justify-self: end;
+    align-self: center;
     transform: rotate(90deg);
     transition: transform 0.3s ease;
     color: #555;
+    font-size: 1.4rem;
   }
   .exp-item.open .exp-summary::after {
     transform: rotate(-90deg);
@@ -138,19 +140,24 @@
       padding: 2.5rem 2rem 0 2rem;
     }
     .exp-summary {
-      grid-template-columns: 1fr; 
-      gap: 0.5rem;
+      grid-template-columns: 150px 1fr 24px; 
+      gap: 0.75rem;
     }
     .exp-desc {
-      grid-template-columns: 1fr; 
-      padding: 1rem 0 1rem 0;
+      grid-template-columns: 80px 1fr; 
+      gap: 1rem;
+      padding: 1rem 0;
     }
     .exp-logo {
       width: 80px;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0;
     }
   }
   @media (max-width: 500px) {
+    .exp-summary {
+      grid-template-columns: 120px 1fr 24px;
+      gap: 0.6rem;
+    }
     .org-role {
       font-size: 1rem;
     }
@@ -162,6 +169,7 @@
     }
     .exp-logo {
       width: 70px;
+      margin-bottom: 0;
     }
   }
 </style>

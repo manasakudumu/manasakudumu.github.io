@@ -4,7 +4,7 @@
     { title: "dancing", description: "the best stress buster, hands down", icon: "dance.png" },
     { title: "rock climbing", description: "reaching new heights and tiny holds", icon: "climb.png" },
     { title: "cafe hopping", description: "i love my daily matcha + bagel combo <3", icon: "whisk.png" },
-    { title: "reading", description: "currently: jeffrey archer and murakami", icon: "book.png" },
+    { title: "reading", description: "currently: Invisible Women by Caroline Criado-Perez", icon: "book.png" },
   ];
 </script>
 <FadeIn>
@@ -133,4 +133,34 @@
       padding: 2rem 2rem; 
     }
   }
+  @media (max-width: 600px) {
+  .hobby-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .hobby-card {
+    width: 100%;
+    min-height: 140px;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  .hobby-title {
+    font-size: 1.05rem;
+  }
+
+  .hobby-desc {
+    font-size: 0.85rem;
+    padding-right: 3rem;
+  }
+
+  .hobby-draw {
+    width: 85px;
+    height: 85px;
+    bottom: -15px;
+  }
+}
+  
 </style>

@@ -68,7 +68,7 @@
 <FadeIn>
   <section class="research-section">
     <div class="research-intro">
-      <p>My research sits at the intersection of accessibility, human-AI interaction, computational social science, and natural language processing. By combining computational methods with human-centered research, I study how people interact with AI and design intelligent systems that are more inclusive, trustworthy, and impactful.</p>
+      <p>My research sits at the intersection of accessibility, human-AI interaction, computational social science, and natural language processing. By combining computational methods with human-centered research, I study how people interact with AI and design intelligent systems that are more inclusive and trustworthy</p>
     </div>
 
     <div class="research-list">
@@ -87,11 +87,11 @@
             <p class="award">🥈 {item.award}</p>
           {/if}
 
-          <div class="tags">
+          <!-- <div class="tags">
             {#each item.tags as tag}
               <span>{tag}</span>
             {/each}
-          </div>
+          </div> -->
 
           <p class="desc">{item.desc}</p>
 
