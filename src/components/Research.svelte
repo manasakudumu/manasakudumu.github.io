@@ -68,7 +68,7 @@
 <FadeIn>
   <section class="research-section">
     <div class="research-intro">
-      <p>My research sits at the intersection of accessibility, human-AI interaction, computational social science, and natural language processing. By combining computational methods with human-centered research, I study how people interact with AI and design intelligent systems that are more inclusive and trustworthy</p>
+      <p>My research sits at the intersection of accessibility, human-AI interaction, computational social science, and natural language processing. By combining computational methods with human-centered research, I study how people interact with AI and design intelligent systems that are more inclusive and trustworthy.</p>
     </div>
 
     <div class="research-list">
